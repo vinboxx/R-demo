@@ -11,7 +11,7 @@ Rscript -e 'install.packages("nycflights13", repos="http://cran.us.r-project.org
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://r-python.streamlitapp.com/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://vinboxx-r-demo-dsb-10.streamlit.app/)
 
 ## R packages used
 The following R packages are used in this app:
