@@ -1,4 +1,4 @@
-library(nycflights13)
+load("src/data/flights.rda")
 library(dplyr)
 
 flights %>%

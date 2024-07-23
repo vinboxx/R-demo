@@ -1,6 +1,6 @@
-library(nycflights13)
+load("src/data/flights.rda")
 library(dplyr)
 
 flights %>%
     select(year, month, day, dep_time, origin, dest, carrier, air_time, distance) %>%
-    sample_n(10)
+    head(10)

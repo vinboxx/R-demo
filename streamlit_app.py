@@ -7,19 +7,30 @@ def execute_rscript(file):
         ["Rscript", file], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
     )
     result = process.communicate()
-    return result[0]
+    return result
 
 
 def render_r_code(file):
     with st.expander("Code", expanded=True):
         code = open(file, "r").read()
+        # Remove every line that starts with load() function
+        code = "\n".join(
+            [line for line in code.split("\n") if not line.startswith("load(")]
+        )
         st.code(code, language="r")
+
+
+def render_r_output(file):
+    result = execute_rscript(file)
+    stdout, stderr = result
+    if stdout:
+        st.write("Output:")
+        st.code(stdout)
 
 
 def render_rscript(file):
     render_r_code(file)
-    result1 = execute_rscript(file)
-    st.code(result1, language="r")
+    render_r_output(file)
 
 
 st.header("🧰 dplyr - A Grammar of Data Manipulation")
